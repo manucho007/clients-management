@@ -61,4 +61,9 @@ export class ClientService {
     this.clientDoc = this.afs.doc<Client>(`/clients/${id}`);
     this.clientDoc.delete();
   }
+
+  updateClient(client: Client) {
+    this.clientDoc = this.afs.doc<Client>(`/clients/${client.id}`);
+    this.clientDoc.update(client);
+  }
 }

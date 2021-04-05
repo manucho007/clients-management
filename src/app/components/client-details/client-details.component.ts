@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { Client } from 'src/app/models/Client';
 import { ClientService } from 'src/app/services/client.service';
@@ -17,7 +17,8 @@ export class ClientDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private clientService: ClientService,
-    private fms: FlashMessagesService
+    private fms: FlashMessagesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +36,18 @@ export class ClientDetailsComponent implements OnInit {
   onDeleteClick() {
     if (confirm('Are you sure?')) {
       this.clientService.deleteClient(this.id);
-      this.fms.show('Client succesfully deleted');
+      this.fms.show('Client removed', {
+        cssClass: 'alert-success',
+        timeout: 4000,
+      });
+      this.router.navigate(['/']);
     }
+  }
+  updateBalance() {
+    this.clientService.updateClient(this.client);
+    this.fms.show('Balance updated', {
+      cssClass: 'alert-success',
+      timeout: 4000,
+    });
   }
 }
