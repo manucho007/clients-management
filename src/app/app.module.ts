@@ -21,6 +21,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from 'src/environments/environment';
 import { ClientService } from './services/client.service';
 import { FormsModule } from '@angular/forms';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { FormsModule } from '@angular/forms';
     AngularFirestoreModule,
     AngularFireAuthModule,
     FormsModule,
+    FlashMessagesModule.forRoot(),
   ],
   providers: [ClientService],
   bootstrap: [AppComponent],
