@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fireprojects-9cdd5": {
+      "hosting": {
+        "clientsPanel": [
+          "fireprojects-9cdd5"
+        ]
+      }
+    }
+  }
+}
