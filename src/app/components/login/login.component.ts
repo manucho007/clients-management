@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.authService.getAuth().then((auth) => {
+    this.authService.getAuth().subscribe((auth) => {
       if (auth) {
         this.router.navigate(['/']);
       }
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         cssClass: 'alert-success',
         timeout: 4000,
       });
-      this.router.navigate(['/']);
+      // this.router.navigate(['/']);
     } catch (error) {
       this.fms.show(error.message, {
         cssClass: 'alert-danger',
